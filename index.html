@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tap for Meow 🐾</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      background: url('cat.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: 25%;
+      right: 15%;
+      background: white;
+      padding: 14px 20px;
+      border-radius: 25px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      user-select: none;
+    }
+
+    .bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -12px;
+      left: 20px;
+      width: 0;
+      height: 0;
+      border: 12px solid transparent;
+      border-top-color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <audio id="miau">
+    <source src="miau.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="bubble" onclick="document.getElementById('miau').play()">
+    Tap for Meow 🐱
+  </div>
+
+</body>
+</html>
