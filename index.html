@@ -15,35 +15,45 @@
     body {
       background: url('cat.jpg') no-repeat center center fixed;
       background-size: cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-family: system-ui, -apple-system, BlinkMacSystemFont;
     }
 
-    .bubble {
+    /* Sprechblase */
+    .speech-bubble {
       position: absolute;
-      bottom: 60%;
-      right: 5%;
+      bottom: 28%;
+      right: 12%;
       background: white;
-      padding: 14px 20px;
-      border-radius: 25px;
-      font-size: 1.2rem;
-      font-weight: 600;
+      border: 5px solid black;
+      border-radius: 50%;
+      padding: 22px 32px;
+      font-size: 1.3rem;
+      font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
       user-select: none;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
     }
 
-    .bubble::after {
+    /* schwarzer Rand vom Zipfel */
+    .speech-bubble::before {
       content: "";
       position: absolute;
-      bottom: -12px;
-      left: 20px;
-      width: 0;
-      height: 0;
-      border: 12px solid transparent;
-      border-top-color: white;
+      bottom: -32px;
+      left: 40px;
+      border-width: 20px 18px 0;
+      border-style: solid;
+      border-color: black transparent transparent;
+    }
+
+    /* weißer Innen-Zipfel */
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -26px;
+      left: 44px;
+      border-width: 16px 14px 0;
+      border-style: solid;
+      border-color: white transparent transparent;
     }
   </style>
 </head>
@@ -54,9 +64,11 @@
     <source src="miau.mp3" type="audio/mpeg">
   </audio>
 
-  <div class="bubble" onclick="document.getElementById('miau').play()">
-    Tap for Meow 🐱
+  <div class="speech-bubble"
+       onclick="document.getElementById('miau').play()">
+    Tap for Meow
   </div>
 
 </body>
 </html>
+
